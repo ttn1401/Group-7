@@ -31,6 +31,10 @@ const Header = () => {
       navigate('/')
    }
 
+   const navigateToAdmin = () => {
+      navigate('/admin/users')
+   }
+
    const stickyHeaderFunc = () => {
       window.addEventListener('scroll', () => {
          if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -77,7 +81,7 @@ const Header = () => {
                   <div className="nav__right d-flex align-items-center gap-4">
                      <div className="nav__btns d-flex align-items-center gap-2">
                         {
-                           user ? <> <h5 className='mb-0'>{user.username}</h5>
+                           user ? <> <Button className='btn btn-dark' onClick={navigateToAdmin}><h5 className='mb-0'>{user.username}</h5></Button>
                                  <Button className='btn btn-dark' onClick={logout}>Logout</Button>
                               </> : <>
                                  <Button className='btn secondary__btn'><Link to='/login'>Login</Link></Button>
